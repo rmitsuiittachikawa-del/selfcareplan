@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>セルフケア分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --bg-main: #f6f8f7;
+  --bg-card: #ffffff;
+  --bg-accent: #e4f1ec;
+  --text-main: #2f3e3a;
+  --text-sub: #6b8a82;
+  --accent: #4f8f82;
+  --radius-lg: 28px;
+  --radius-md: 20px;
+}
+
+/* ===== ベース ===== */
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family:
+    "Hiragino Maru Gothic ProN",
+    "Noto Sans JP",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  padding: 3rem 1.5rem 2.5rem;
+  background: linear-gradient(160deg, #d6eee7, #eef7f3);
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* ===== メイン ===== */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.2rem 3rem;
+}
+
+/* ===== 見出し ===== */
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 1.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.section-lead {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  margin-bottom: 1.8rem;
+}
+
+/* ===== 注意サイン（カード） ===== */
+.notice {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.notice-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.notice-card h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.notice-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.notice-card li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== 日常ケア ===== */
+.care-grid {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.care-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.6rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+}
+
+.care-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.care-card .sub {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+
+.care-card ul {
+  margin-top: 1.2rem;
+  padding-left: 1.2rem;
+}
+
+.care-card li {
+  margin-bottom: 0.6rem;
+}
+
+/* ===== フッター ===== */
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem 2rem;
+  font-size: 0.8rem;
+  color: var(--text-sub);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>セルフケアプラン</h1>
+</header>
+
+<main>
+
+<h2>注意サインに対するケア</h2>
+
+<div class="notice">
+  <div class="notice-card">
+    <h3>家を出るギリギリまで起きられない</h3>
+    <ul>
+      <li>活動ごとに20分程度の休憩を意識する</li>
+      <li>就寝1時間前を目安に入浴する</li>
+    </ul>
+  </div>
+
+  <div class="notice-card">
+    <h3>朝から精神的な落ち込みがある</h3>
+    <ul>
+      <li>失敗は必ず起こるものと捉える</li>
+      <li>良かったことに目を向ける</li>
+      <li>違う視点から考えてみる</li>
+    </ul>
+  </div>
+
+  <div class="notice-card">
+    <h3>肩こりや首の痛み</h3>
+    <ul>
+      <li>今の疲れ具合に目を向ける</li>
+      <li>サインを感じたら体を動かす</li>
+    </ul>
+  </div>
+</div>
+
+<h2>日常的に行うケア</h2>
+
+<div class="care-grid">
+  <div class="care-card">
+    <h3>リラックス</h3>
+    <div class="sub">家で疲れを感じたとき</div>
+    <ul>
+      <li>焚き火の音を聞く</li>
+      <li>コーヒーを飲む</li>
+      <li>入浴・横になって休憩する</li>
+    </ul>
+  </div>
+
+  <div class="care-card">
+    <h3>すぐできること</h3>
+    <div class="sub">作業中・職場で</div>
+    <ul>
+      <li>瞑想する</li>
+      <li>肩や首をゆっくり動かす</li>
+      <li>遠くを見る</li>
+    </ul>
+  </div>
+
+  <div class="care-card">
+    <h3>精神回復</h3>
+    <div class="sub">気持ちが落ち込んだとき</div>
+    <ul>
+      <li>音楽を聴く</li>
+      <li>猫の写真を見る</li>
+      <li>良かったことを思い出す</li>
+    </ul>
+  </div>
+
+  <div class="care-card">
+    <h3>身の回りの管理</h3>
+    <div class="sub">心に余裕があるとき</div>
+    <ul>
+      <li>収納を整える</li>
+      <li>掃除をする</li>
+      <li>外に出て体を動かす</li>
+    </ul>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  © セルフケア分析
+</footer>
+
+</body>
+</html>
