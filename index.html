@@ -1,236 +1,345 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>セルフケア分析</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>セルフケアプラン</title>
 
-<style>
-:root {
-  --bg-main: #f6f8f7;
-  --bg-card: #ffffff;
-  --bg-accent: #e4f1ec;
-  --text-main: #2f3e3a;
-  --text-sub: #6b8a82;
-  --accent: #4f8f82;
-  --radius-lg: 28px;
-  --radius-md: 20px;
-}
+  <style>
+    :root{
+      --green-dark:#1b4332;
+      --green:#2d6a4f;
+      --green-light:#74c69d;
+      --mint:#d8f3dc;
+      --bg:#f3fbf6;
+      --card:#ffffff;
+      --text:#1f2937;
+      --sub:#4b5563;
+      --shadow: 0 10px 25px rgba(27, 67, 50, 0.12);
+      --radius: 18px;
+    }
 
-/* ===== ベース ===== */
-body {
-  margin: 0;
-  background: var(--bg-main);
-  color: var(--text-main);
-  font-family:
-    "Hiragino Maru Gothic ProN",
-    "Noto Sans JP",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
-  font-size: 16px;
-  line-height: 1.9;
-  letter-spacing: 0.02em;
-}
+    body{
+      margin:0;
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+      background: linear-gradient(180deg, var(--bg), var(--mint));
+      color:var(--text);
+      line-height:1.9;
+    }
 
-/* ===== ヘッダー ===== */
-header {
-  padding: 3rem 1.5rem 2.5rem;
-  background: linear-gradient(160deg, #d6eee7, #eef7f3);
-  border-bottom-left-radius: 36px;
-  border-bottom-right-radius: 36px;
-  text-align: center;
-}
+    header{
+      padding:54px 18px 32px;
+      text-align:center;
+      background: radial-gradient(circle at top, rgba(116,198,157,0.55), transparent 70%);
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 1.9rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
+    header h1{
+      margin:0;
+      font-size:2rem;
+      color:var(--green-dark);
+      letter-spacing: 0.05em;
+    }
 
-/* ===== メイン ===== */
-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 2.5rem 1.2rem 3rem;
-}
+    header p{
+      margin-top:10px;
+      color:var(--sub);
+      font-size:0.95rem;
+    }
 
-/* ===== 見出し ===== */
-h2 {
-  margin-top: 3.2rem;
-  margin-bottom: 1.6rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-}
+    main{
+      max-width:980px;
+      margin:0 auto;
+      padding:20px 16px 80px;
+    }
 
-.section-lead {
-  font-size: 0.9rem;
-  color: var(--text-sub);
-  margin-bottom: 1.8rem;
-}
+    .section-title{
+      margin:0 0 14px;
+      font-size:1.25rem;
+      color:var(--green);
+      border-left: 6px solid var(--green-light);
+      padding-left:12px;
+    }
 
-/* ===== 注意サイン（カード） ===== */
-.notice {
-  display: grid;
-  gap: 1.6rem;
-}
+    .section-subtitle{
+      margin:18px 0 10px;
+      font-size:1.05rem;
+      color:var(--green-dark);
+      font-weight:700;
+    }
 
-.notice-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 1.6rem 1.5rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
 
-.notice-card h3 {
-  margin: 0 0 0.8rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent);
-}
+    @media(min-width: 700px){
+      .grid{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-.notice-card ul {
-  margin: 0;
-  padding-left: 1.2rem;
-}
+    @media(min-width: 980px){
+      .grid{
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
-.notice-card li {
-  margin-bottom: 0.5rem;
-}
+    .card{
+      background:var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px 16px;
+      border: 1px solid rgba(45,106,79,0.12);
+    }
 
-/* ===== 日常ケア ===== */
-.care-grid {
-  display: grid;
-  gap: 1.8rem;
-}
+    .card-title{
+      font-weight:800;
+      color:var(--green-dark);
+      font-size:1.05rem;
+      margin-bottom:10px;
+    }
 
-.care-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem 1.6rem;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.05);
-}
+    .card-content{
+      color:var(--text);
+      font-size:0.98rem;
+    }
 
-.care-card h3 {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
+    .card-content .dot{
+      display:block;
+      margin:6px 0;
+    }
 
-.care-card .sub {
-  margin-top: 0.4rem;
-  font-size: 0.85rem;
-  color: var(--text-sub);
-}
+    .label{
+      display:inline-block;
+      background: rgba(45,106,79,0.10);
+      border: 1px solid rgba(45,106,79,0.15);
+      padding:7px 12px;
+      border-radius: 999px;
+      font-size:0.85rem;
+      color:var(--green-dark);
+      font-weight:700;
+      margin: 0 8px 10px 0;
+    }
 
-.care-card ul {
-  margin-top: 1.2rem;
-  padding-left: 1.2rem;
-}
+    .category-card{
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(45,106,79,0.10);
+      border-radius: 18px;
+      padding:16px 14px;
+      box-shadow: 0 8px 20px rgba(27, 67, 50, 0.08);
+    }
 
-.care-card li {
-  margin-bottom: 0.6rem;
-}
+    .category-title{
+      font-weight:900;
+      color:var(--green-dark);
+      margin-bottom:10px;
+      font-size:1.05rem;
+    }
 
-/* ===== フッター ===== */
-footer {
-  text-align: center;
-  padding: 2.5rem 1rem 2rem;
-  font-size: 0.8rem;
-  color: var(--text-sub);
-}
-</style>
+    ul{
+      margin:0;
+      padding-left: 1.2em;
+    }
+
+    li{
+      margin:8px 0;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      color:rgba(31,41,55,0.65);
+      font-size:0.9rem;
+    }
+
+    .wrap{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .divider{
+      margin:26px 0;
+      height:1px;
+      background: rgba(45,106,79,0.15);
+      border:none;
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <h1>セルフケアプラン</h1>
+    <p>癒しとリラックスをテーマにしたセルフケア整理ページ</p>
+  </header>
 
-<header>
-  <h1>セルフケアプラン</h1>
-</header>
+  <main>
 
-<main>
+    <section>
+      <h2 class="section-title">注意サインに対するケア</h2>
 
-<h2>注意サインに対するケア</h2>
+      <div class="grid">
 
-<div class="notice">
-  <div class="notice-card">
-    <h3>家を出るギリギリまで起きられない</h3>
-    <ul>
-      <li>活動ごとに20分程度の休憩を意識する</li>
-      <li>就寝1時間前を目安に入浴する</li>
-    </ul>
-  </div>
+        <div class="card">
+          <div class="card-title">注意サイン</div>
+          <div class="card-content">家を出るギリギリまで起きられない</div>
+          <hr class="divider">
+          <div class="card-title">セルフケア</div>
+          <div class="card-content">
+            ‧帰宅直後、家事の合間、ゲームの前後<br>
+            など、家での活動に対してそれぞれ20<br>
+            分程度の休憩を意識してとる<br>
+            ‧時間がギリギリになっても⼤丈夫なよ<br>
+            う、前⽇に準備をしておく
+          </div>
+        </div>
 
-  <div class="notice-card">
-    <h3>朝から精神的な落ち込みがある</h3>
-    <ul>
-      <li>失敗は必ず起こるものと捉える</li>
-      <li>良かったことに目を向ける</li>
-      <li>違う視点から考えてみる</li>
-    </ul>
-  </div>
+        <div class="card">
+          <div class="card-title">注意サイン</div>
+          <div class="card-content">精神的な落ち込みがある</div>
+          <hr class="divider">
+          <div class="card-title">セルフケア</div>
+          <div class="card-content">
+            ・失敗は必ず起こること考える<br>
+            ・悪かったことではなく良かったことに目を<br>
+            向ける<br>
+            ・失敗を違う視点からとらえる
+          </div>
+        </div>
 
-  <div class="notice-card">
-    <h3>肩こりや首の痛み</h3>
-    <ul>
-      <li>今の疲れ具合に目を向ける</li>
-      <li>サインを感じたら体を動かす</li>
-    </ul>
-  </div>
-</div>
+        <div class="card">
+          <div class="card-title">注意サイン</div>
+          <div class="card-content">肩こりや首の痛み</div>
+          <hr class="divider">
+          <div class="card-title">セルフケア</div>
+          <div class="card-content">
+            ・疲れに気づかないことがあるので、帰宅<br>
+            直後にセルフチェックをする<br>
+            ・指標が出たらストレッチなどでほぐす
+          </div>
+        </div>
 
-<h2>日常的に行うケア</h2>
+      </div>
+    </section>
 
-<div class="care-grid">
-  <div class="care-card">
-    <h3>リラックス</h3>
-    <div class="sub">家で疲れを感じたとき</div>
-    <ul>
-      <li>焚き火の音を聞く</li>
-      <li>コーヒーを飲む</li>
-      <li>入浴・横になって休憩する</li>
-    </ul>
-  </div>
+    <section style="margin-top:40px;">
+      <h2 class="section-title">⽇常的に⾏うケア</h2>
 
-  <div class="care-card">
-    <h3>すぐできること</h3>
-    <div class="sub">作業中・職場で</div>
-    <ul>
-      <li>瞑想する</li>
-      <li>肩や首をゆっくり動かす</li>
-      <li>遠くを見る</li>
-    </ul>
-  </div>
+      <div class="wrap">
+        <span class="label">【休息‧回復】</span>
+        <span class="label">【思考の棚卸し】</span>
+        <span class="label">【心の回復】</span>
+        <span class="label">【集中力アップ】</span>
+        <span class="label">【環境整備】</span>
+        <span class="label">【環境整備】</span>
+      </div>
 
-  <div class="care-card">
-    <h3>精神回復</h3>
-    <div class="sub">気持ちが落ち込んだとき</div>
-    <ul>
-      <li>音楽を聴く</li>
-      <li>猫の写真を見る</li>
-      <li>良かったことを思い出す</li>
-    </ul>
-  </div>
+      <div class="grid">
 
-  <div class="care-card">
-    <h3>身の回りの管理</h3>
-    <div class="sub">心に余裕があるとき</div>
-    <ul>
-      <li>収納を整える</li>
-      <li>掃除をする</li>
-      <li>外に出て体を動かす</li>
-    </ul>
-  </div>
-</div>
+        <div class="category-card">
+          <div class="category-title">【休息‧回復】</div>
+          <div class="card-content">リラックス、疲労回復したいとき</div>
+          <hr class="divider">
+          <ul>
+            <li>横になって休憩をとる</li>
+            <li>お風呂につかる</li>
+            <li>温泉に⾏く</li>
+            <li>寝⽅を変える</li>
+            <li>考えることをやめる</li>
+            <li>瞑想する</li>
+            <li>深呼吸をする</li>
+            <li>焚き火の音を聞く</li>
+            <li>坂本⿓⼀さんの「Energy Flow」を聴く</li>
+            <li>コーヒーを飲む</li>
+            <li>お香を炊く</li>
+          </ul>
+        </div>
 
-</main>
+        <div class="category-card">
+          <div class="category-title">【思考の棚卸し】</div>
+          <div class="card-content">思考のモヤモヤを整理したい時</div>
+          <hr class="divider">
+          <ul>
+            <li>やることを書き出す</li>
+            <li>明日やることをメモに書く</li>
+            <li>目的を考える</li>
+            <li>出来事をリフレーミングする</li>
+            <li>考え⽅の癖を確認する</li>
+            <li>思い込みになっていることがないか確認する</li>
+            <li>客観的に物事を⾒る</li>
+            <li>相手視点で考える</li>
+            <li>成功体験を分析する</li>
+          </ul>
+        </div>
 
-<footer>
-  © セルフケア分析
-</footer>
+        <div class="category-card">
+          <div class="category-title">【心の回復】</div>
+          <div class="card-content">精神的落ち込みがあったとき</div>
+          <hr class="divider">
+          <ul>
+            <li>良かったことを思い出す</li>
+            <li>感謝できることを見つける</li>
+            <li>過去の失敗を良かったことに言い換える</li>
+            <li>すべて必要だったことと捉える</li>
+            <li>楽しめないことを避ける</li>
+            <li>猫の写真を見る</li>
+            <li>悩みを相談する</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-title">【集中力アップ】</div>
+          <div class="card-content">集中したい時や気分を切り替えたい時</div>
+          <hr class="divider">
+          <ul>
+            <li>服を着替える</li>
+            <li>朝起きたら⽇光を浴びる</li>
+            <li>外に出てランニングをする</li>
+            <li>外気浴をする</li>
+            <li>スマホを15分間見ない</li>
+            <li>1分間外を見る</li>
+            <li>遠い場所を見る</li>
+            <li>英単語をひたすら書く</li>
+            <li>プログラミングのコードを紙に書く</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-title">【環境整備】</div>
+          <div class="card-content">身の回りを整えること</div>
+          <hr class="divider">
+          <ul>
+            <li>拭き掃除をする</li>
+            <li>掃除機をかける</li>
+            <li>家の収納を整理整頓する</li>
+            <li>布団を整える</li>
+            <li>作業スペースを整える</li>
+            <li>服のメンテナンスをする</li>
+            <li>コーヒーを焙煎する</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-title">【環境整備】</div>
+          <div class="card-content">気分を上げたいとき</div>
+          <hr class="divider">
+          <ul>
+            <li>カフェに行く</li>
+            <li>水族館に行く</li>
+            <li>自然が豊かな場所に行く</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © セルフケアプラン
+  </footer>
 
 </body>
 </html>
